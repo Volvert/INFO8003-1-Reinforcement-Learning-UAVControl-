@@ -48,6 +48,7 @@ conda activate "${CONDA_ENV}" || {
 # Run `wandb login` once on the login node; the key lands in ~/.netrc and
 # every batch job picks it up automatically. No need to set WANDB_API_KEY.
 export WANDB_PROJECT="info8003-rl"
+export WANDB_ENTITY="florent-volvert"
 export WANDB_SILENT="true"
 # Avoid wandb spamming /tmp on shared nodes — direct it under our project
 export WANDB_DIR="${PROJECT_ROOT}/logs/wandb"
