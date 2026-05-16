@@ -1,0 +1,30 @@
+# Python 3.10
+# Pinned because the grading server loads your submission in a pinned venv
+# (see project statement section 6.3). Loosen these only if a pin breaks
+# install on your machine; SB3 zip checkpoints are sensitive to numpy/torch
+# major versions across save/load.
+
+# --- Gym + RL ---
+gymnasium==0.29.1
+stable-baselines3==2.3.2
+sb3-contrib==2.3.0
+torch==2.2.2
+
+# --- Simulator ---
+PyFlyt==0.29.0
+pybullet==3.2.6
+
+# --- Logging ---
+wandb==0.17.5
+tensorboard==2.16.2
+
+# --- Numerics + analysis ---
+numpy==1.26.4
+scipy==1.13.0
+pandas==2.2.2
+matplotlib==3.8.4
+rliable==1.2.0           # Agarwal et al. NeurIPS 2021 — used in analyze.py
+
+# --- Niceties ---
+tqdm==4.66.4
+rich==13.7.1

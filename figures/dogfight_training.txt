@@ -1,0 +1,13 @@
+run                                             episodes     final r   final ep len
+-------------------------------------------------------------------------------------
+ppo_dogfight_seed0_20260506-150417                  5975      9138.6         1111.7
+ppo_dogfight_seed1_20260506-150826                  5523     10403.1         1196.0
+
+[plot] saved -> report/figures/dogfight_training.png
+
+Final performance (last 200 episodes mean):
+  seed1: 10403.14
+  seed0: 9138.63
+
+Best seed: seed1  (final reward 10403.14)
+Tournament checkpoint: models/ppo_dogfight_seed1_20260506-150826/final_model.zip

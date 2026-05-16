@@ -1,0 +1,32 @@
+# INFO8003 RL Project — pinned dependencies.
+#
+# The grading server uses Python 3.10 with the versions below. The submission
+# must load in this exact environment. If you trained in a different venv,
+# re-export the model from one that matches these pins (load + save is
+# sufficient — no need to retrain).
+#
+# ------------------------------------------------------------------
+# OFFICIAL pins (must match the grading server exactly)
+# ------------------------------------------------------------------
+torch==2.10.0
+stable-baselines3==2.7.1
+gymnasium==1.2.3
+pettingzoo==1.25.0
+pybullet==3.2.7
+PyFlyt==0.29.0
+
+# ------------------------------------------------------------------
+# Local additions for training / experiment tracking / analysis.
+# These are NOT required at grading time (the grader only loads the model),
+# so version flexibility here is fine.
+# ------------------------------------------------------------------
+sb3-contrib>=2.7,<3
+wandb>=0.16,<0.18
+tensorboard>=2.16
+pyyaml>=6.0
+tqdm>=4.66
+
+# Analysis / plotting for the report
+matplotlib>=3.8
+pandas>=2.2
+scipy>=1.13

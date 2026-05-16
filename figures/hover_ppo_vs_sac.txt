@@ -1,0 +1,21 @@
+Loading runs:
+
+  group 'PPO' from 'logs/ppo_hover_fm6_seed*_2026*'
+  [load] ppo_hover_fm6_seed0_20260506-051631: 5 eval points, final reward = 1130.37
+  [load] ppo_hover_fm6_seed1_20260506-055422: 5 eval points, final reward = 1125.26
+  [load] ppo_hover_fm6_seed2_20260506-063125: 5 eval points, final reward = 1124.52
+
+  group 'SAC' from 'logs/sac_hover_fm6_seed*_2026*'
+  [load] sac_hover_fm6_seed0_20260506-070901: 50 eval points, final reward = 1104.15
+  [load] sac_hover_fm6_seed1_20260506-113154: 50 eval points, final reward = 1097.94
+  [load] sac_hover_fm6_seed2_20260506-120230: 50 eval points, final reward = 1132.60
+[plot] saved -> report/figures/hover_ppo_vs_sac.png
+
+Final performance (mean of last 5 eval points per seed):
+  group                  n        mean         IQM                  95% CI
+  ---------------------------------------------------------------------------
+  PPO                    3      993.39      993.39  [  991.75,   995.74]
+  SAC                    3     1092.13     1092.13  [ 1076.64,  1110.06]
+
+Pairwise Welch's t-tests on final performance:
+  PPO                  vs SAC                   t=-10.08  p=0.0088  **

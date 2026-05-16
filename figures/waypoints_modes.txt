@@ -1,0 +1,38 @@
+Loading runs:
+
+  group 'mode 0' from 'logs/ppo_waypoints_fm0_seed*_2026*'
+  [load] ppo_waypoints_fm0_seed0_20260505-163756: 7 eval points, final reward = 987.72
+  [load] ppo_waypoints_fm0_seed1_20260505-163756: 7 eval points, final reward = 333.00
+  [load] ppo_waypoints_fm0_seed2_20260505-163756: 7 eval points, final reward = 1414.06
+
+  group 'mode 4' from 'logs/ppo_waypoints_fm4_seed*_2026*'
+  [load] ppo_waypoints_fm4_seed0_20260505-164429: 7 eval points, final reward = -290.87
+  [load] ppo_waypoints_fm4_seed1_20260505-181322: 7 eval points, final reward = -226.70
+  [load] ppo_waypoints_fm4_seed2_20260505-183007: 7 eval points, final reward = -215.80
+
+  group 'mode 6' from 'logs/ppo_waypoints_fm6_seed*_2026*'
+  [load] ppo_waypoints_fm6_seed0_20260505-184644: 7 eval points, final reward = -254.38
+  [load] ppo_waypoints_fm6_seed1_20260505-185519: 7 eval points, final reward = -256.97
+  [load] ppo_waypoints_fm6_seed2_20260505-200113: 7 eval points, final reward = -280.27
+
+  group 'mode 7' from 'logs/ppo_waypoints_fm7_seed*_2026*'
+  [load] ppo_waypoints_fm7_seed0_20260505-201521: 7 eval points, final reward = -312.50
+  [load] ppo_waypoints_fm7_seed1_20260505-210805: 7 eval points, final reward = -310.43
+  [load] ppo_waypoints_fm7_seed2_20260505-212712: 7 eval points, final reward = -327.79
+[plot] saved -> report/figures/waypoints_modes.png
+
+Final performance (mean of last 5 eval points per seed):
+  group                  n        mean         IQM                  95% CI
+  ---------------------------------------------------------------------------
+  mode 0                 3      636.34      636.34  [  534.68,   754.31]
+  mode 4                 3     -252.44     -252.44  [ -259.20,  -240.94]
+  mode 6                 3     -237.43     -237.43  [ -241.62,  -233.26]
+  mode 7                 3     -321.38     -321.38  [ -327.53,  -316.79]
+
+Pairwise Welch's t-tests on final performance:
+  mode 0               vs mode 4                t=+13.85  p=0.0049  **
+  mode 0               vs mode 6                t=+13.66  p=0.0053  **
+  mode 0               vs mode 7                t=+14.96  p=0.0043  **
+  mode 4               vs mode 6                t= -2.40  p=0.1065  
+  mode 4               vs mode 7                t=+10.44  p=0.0016  **
+  mode 6               vs mode 7                t=+20.97  p=0.0001  ***

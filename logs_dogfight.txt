@@ -1,0 +1,216 @@
+nohup: ignoring input
+pybullet build time: Jan 29 2025 23:16:28
+[A                             [A
+[A                             [A
+[A                             [A
+[A                             [A
+Using cpu device
+
+[PPO_Dogfight_seed0] Training for 2,000,000 timesteps
+[PPO_Dogfight_seed0] Snapshot every 200,000 steps, pool_size=5
+[A                             [A
+[A                             [A
+[A                             [A
+[A                             [A
+Logging to results/logs/PPO_Dogfight_seed0/PPO_2
+[A                             [A
+[A                             [A
+[A                             [A
+[A                             [A
+[A                             [A
+[A                             [A
+[A                             [A
+[A                             [A
+[A                             [A
+[A                             [A
+[A                             [A
+[A                             [A
+[A                             [A
+[A                             [A
+[A                             [A
+[A                             [A
+[A                             [A
+[A                             [A
+[A                             [A
+[A                             [A
+[A                             [A
+[A                             [A
+[A                             [A
+[A                             [A
+[A                             [A
+[A                             [A
+[A                             [A
+[A                             [A
+[A                             [A
+[A                             [A
+[A                             [A
+[A                             [A
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 245      |
+|    ep_rew_mean     | 1.01e+03 |
+| time/              |          |
+|    fps             | 88       |
+|    iterations      | 1        |
+|    time_elapsed    | 92       |
+|    total_timesteps | 8192     |
+---------------------------------
+[A                             [A
+[A                             [A
+[A                             [A
+[A                             [A
+[A                             [A
+[A                             [A
+[A                             [A
+[A                             [A
+[A                             [A
+[A                             [A
+[A                             [A
+[A                             [A
+[A                             [A
+[A                             [A
+[A                             [A
+[A                             [A
+[A                             [A
+[A                             [A
+[A                             [A
+[A                             [A
+[A                             [A
+[A                             [A
+[A                             [A
+[A                             [A
+[A                             [A
+[A                             [A
+[A                             [A
+[A                             [A
+------------------------------------------
+| rollout/                |              |
+|    ep_len_mean          | 241          |
+|    ep_rew_mean          | 1.07e+03     |
+| time/                   |              |
+|    fps                  | 86           |
+|    iterations           | 2            |
+|    time_elapsed         | 190          |
+|    total_timesteps      | 16384        |
+| train/                  |              |
+|    approx_kl            | 0.0075818077 |
+|    clip_fraction        | 0.0902       |
+|    clip_range           | 0.2          |
+|    entropy_loss         | -5.7         |
+|    explained_variance   | 0.000147     |
+|    learning_rate        | 0.0003       |
+|    loss                 | 1.36e+04     |
+|    n_updates            | 10           |
+|    policy_gradient_loss | -0.0121      |
+|    std                  | 1.01         |
+|    value_loss           | 2.31e+04     |
+------------------------------------------
+[A                             [A
+[A                             [A
+[A                             [A
+[A                             [A
+[A                             [A
+[A                             [A
+[A                             [A
+[A                             [A
+[A                             [A
+[A                             [A
+[A                             [A
+[A                             [A
+[A                             [A
+[A                             [A
+[A                             [A
+[A                             [A
+[A                             [A
+[A                             [A
+[A                             [A
+[A                             [A
+[A                             [A
+[A                             [A
+[A                             [A
+[A                             [A
+[A                             [A
+[A                             [A
+[A                             [A
+[A                             [A
+[A                             [A
+[A                             [A
+[A                             [A
+[A                             [A
+[A                             [A
+[A                             [A
+[A                             [A
+[A                             [A
+[A                             [A
+-----------------------------------------
+| rollout/                |             |
+|    ep_len_mean          | 249         |
+|    ep_rew_mean          | 1.16e+03    |
+| time/                   |             |
+|    fps                  | 85          |
+|    iterations           | 3           |
+|    time_elapsed         | 288         |
+|    total_timesteps      | 24576       |
+| train/                  |             |
+|    approx_kl            | 0.009728049 |
+|    clip_fraction        | 0.0848      |
+|    clip_range           | 0.2         |
+|    entropy_loss         | -5.72       |
+|    explained_variance   | 0.303       |
+|    learning_rate        | 0.0003      |
+|    loss                 | 3.82e+03    |
+|    n_updates            | 20          |
+|    policy_gradient_loss | -0.0109     |
+|    std                  | 1.02        |
+|    value_loss           | 1.31e+04    |
+-----------------------------------------
+[A                             [A
+[A                             [A
+[A                             [A
+[A                             [A
+[A                             [A
+[A                             [A
+[A                             [A
+[A                             [A
+[A                             [A
+[A                             [A
+[A                             [A
+[A                             [A
+[A                             [A
+[A                             [A
+[A                             [A
+[A                             [A
+[A                             [A
+[A                             [A
+[A                             [A
+[A                             [A
+[A                             [A
+[A                             [A
+[A                             [A
+[A                             [A
+[A                             [A
+[A                             [A
+[A                             [A
+[A                             [A
+------------------------------------------
+| rollout/                |              |
+|    ep_len_mean          | 269          |
+|    ep_rew_mean          | 1.35e+03     |
+| time/                   |              |
+|    fps                  | 85           |
+|    iterations           | 4            |
+|    time_elapsed         | 384          |
+|    total_timesteps      | 32768        |
+| train/                  |              |
+|    approx_kl            | 0.0076361094 |
+|    clip_fraction        | 0.0611       |
+|    clip_range           | 0.2          |
+|    entropy_loss         | -5.76        |
+|    explained_variance   | 0.522        |
+|    learning_rate        | 0.0003       |
+|    loss                 | 4.45e+03     |
+|    n_updates            | 30           |
+|    policy_gradient_loss | -0.0105      |
+|    std                  | 1.03         |
+|    value_loss           | 1.38e+04     |
+------------------------------------------
