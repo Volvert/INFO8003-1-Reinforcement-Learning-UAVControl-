@@ -95,20 +95,30 @@ analysis/
   compare_runs.py           # manual comparison (--runs --labels CLI)
   compare_all_runs.py       # auto-generate all report figures + txt
   record_video.py           # visualize a trained policy (human render)
-  extract_metrics.py        # detailed per-model metrics (crash rate, winrate...)
 
 scripts/                    # provided grading scripts — do not modify
-  env_config.py
-  wrappers.py
-  dogfight_wrapper.py
+  common.py                 # shared env factories and algo builders
+  env_config.py             # waypoint env parameter overrides
+  wrappers.py               # FlattenWaypointEnv
+  dogfight_wrapper.py       # DogfightSelfPlayEnv
   evaluate.py               # grading-style evaluation
+  extract_metrics.py        # detailed per-model metrics (crash rate, winrate...)
   tournament.py             # round-robin Elo tournament
-  submission_template.py
+  submission_template.py    # tournament submission template
   test_env.py               # sanity check — run this first
+  train_hover.py            # alternative hover training script
+  train_waypoints.py        # alternative waypoints training script
+  train_dogfight.py         # alternative dogfight training script
   watch_dogfight.py         # watch two agents fight in real time
 
 slurm/
   submit_all.sh             # submit all 23 training jobs to SLURM
+  train_hover.slurm         # SLURM job script for hover
+  train_waypoints.slurm     # SLURM job script for waypoints
+  train_dogfight.slurm      # SLURM job script for dogfight
+
+submissions/
+  group56_main.py           # tournament submission
 
 models/                     # trained checkpoints
   <run_id>/
@@ -123,9 +133,6 @@ logs/                       # training logs
     monitor/rank_*.csv      # episode-level reward and length
 
 figures/                    # all generated PNG + TXT files (compare_all_runs.py)
-
-submissions/                # tournament submission files
-  groupXX_name.py
 ```
 
 ---
@@ -149,34 +156,6 @@ python training/train.py --algo ppo --env waypoints --flight-mode 0 --seed 2
 
 # PPO self-play on Dogfight, seed 0
 python training/train_dogfight.py --seed 0
-```
-
-### Full sweep (all runs for the report)
-
-```bash
-# Hover: PPO + SAC, 3 seeds, mode 6
-for ALGO in ppo sac; do
-  for SEED in 0 1 2; do
-    python training/train.py --algo $ALGO --env hover --flight-mode 6 --seed $SEED
-  done
-done
-
-# Waypoints: PPO, 4 modes, 3 seeds
-for FM in 0 4 6 7; do
-  for SEED in 0 1 2; do
-    python training/train.py --algo ppo --env waypoints --flight-mode $FM --seed $SEED
-  done
-done
-
-# Waypoints: SAC, mode 6, 3 seeds
-for SEED in 0 1 2; do
-  python training/train.py --algo sac --env waypoints --flight-mode 6 --seed $SEED
-done
-
-# Dogfight: PPO self-play, 2 seeds
-for SEED in 0 1; do
-  python training/train_dogfight.py --seed $SEED
-done
 ```
 
 ### On a SLURM cluster
@@ -318,20 +297,6 @@ python analysis/compare_all_runs.py
 cat figures/hover_ppo_vs_sac.txt     # exact run dir + final reward per seed
 cat figures/waypoints_modes.txt
 ```
-
-Copy the best checkpoints to a delivery folder:
-
-```bash
-mkdir -p deliverables/models
-
-# Replace <run_dir> with the exact directory name shown in the TXT file
-cp models/<run_dir>/best_model.zip  deliverables/models/ppo_hover_best.zip
-cp models/<run_dir>/best_model.zip  deliverables/models/sac_hover_best.zip
-cp models/<run_dir>/best_model.zip  deliverables/models/ppo_waypoints_best.zip
-cp models/<run_dir>/best_model.zip  deliverables/models/sac_waypoints_best.zip
-cp models/<run_dir>/final_model.zip deliverables/models/ppo_dogfight_best.zip
-```
-
 ---
 
 ## 10. Tournament Submission
@@ -364,19 +329,8 @@ PPO.load("your_model.zip").save("your_model_pinned.zip")
 ### 3. Test locally
 
 ```bash
-python scripts/tournament.py \
-  submissions/groupXX_name.py \
-  submissions/groupXX_name.py
+python scripts/tournament.py submissions/groupXX_name.py submissions/groupXX_name.py
 ```
-
-### 4. Submit to the leaderboard
-
-```
-https://arthur-louette.com/leaderboard
-```
-
----
-
 ## Reproducibility
 
 Every training script accepts `--seed`. The same seed + the same
