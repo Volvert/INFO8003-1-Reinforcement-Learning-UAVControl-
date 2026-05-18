@@ -9,7 +9,7 @@ max_duration_seconds=120.0.
 
 WAYPOINT_ENV_KWARGS = dict(
     goal_reach_distance=4.0,
-    flight_dome_size=50.0,
+    flight_dome_size=150.0,
     max_duration_seconds=120.0,
     num_targets=4,
 )
